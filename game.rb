@@ -34,7 +34,7 @@ class Game
     end
   end
 
-  def game_menu
+  def game_menu(player_num)
     puts "\n-----Game Menu-----"
     puts '1. Play turn'
     puts '2. Show board'
@@ -42,23 +42,34 @@ class Game
     puts '-----------'
     puts "\nEnter your choice:"
     choice = gets.chomp.to_i
-    game_menu_choice(choice)
+    game_menu_choice(choice, player_num)
   end
 
-  def game_menu_choice(choice)
+  def game_menu_choice(choice, player_num)
     case choice
     when 1
       postion = play_turn(player_num)
+      player_num += 1
     when 2
       @board.show_board
+      player_num
     when 3
       exit 0
     end
   end
 
-  def play_turn
+  def play_turn(player_num)
     puts "\n Enter your postion:"
     postion = gets.chomp.to_i
+    update_board(postion, player_num)
+  end
+
+  def update_board(postion, player_num)
+    @board.board[postion - 1] = if player_num.even?
+                                  @players.player1
+                                else
+                                  @players.player2
+                                end
   end
 end
 
@@ -72,9 +83,12 @@ game1.start_menu until game1.start_game == true
 player_num = 0
 loop do
   if board_instance.winning_condition(board_instance.board)
-    Exit
+    puts "\n\nCongradulations!!!"
+    puts "\nPlayer #{(player_num % 2) + 1} has won the game!"
+    puts "Thank you for Playing!\n Good Bye.."
   else
     puts "Player #{(player_num % 2) + 1}'s Turn"
-    game1.game_menu
+    player_num = game1.game_menu(player_num)
+    puts player_num
   end
 end

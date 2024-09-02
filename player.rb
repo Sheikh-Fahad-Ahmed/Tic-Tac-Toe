@@ -1,5 +1,5 @@
 class Player
-  attr_reader :player1, :player2
+  attr_accessor :player1, :player2
 
   def initialize
     puts "\nPlayer 1 please choose your token ( X or O ):"

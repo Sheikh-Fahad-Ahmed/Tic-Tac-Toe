@@ -1,4 +1,6 @@
-class Board
+require_relative 'player'
+
+class Board 
   attr_accessor :board
 
   def initialize
