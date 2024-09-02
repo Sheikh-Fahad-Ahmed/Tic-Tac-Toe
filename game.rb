@@ -3,9 +3,10 @@
 require_relative 'board'
 require_relative 'player'
 
-class Game < Board
-  def initialize
-    super
+class Game
+  def initialize(players, board_instance)
+    @players = players
+    @board = board_instance
     puts 'Welcome to Tic-Tac-Toe'
   end
 
@@ -23,13 +24,15 @@ class Game < Board
   def go_to_menu(choice)
     case choice
     when 1
-      show_board
+      @board.show_board
     end
   end
+
 end
 
-game1 = Game.new
-
+board_instance = Board.new
 players = Player.new
+game1 = Game.new(players, board_instance)
 players.display_player_selection
+board_instance.show_board
 game1.display_menu

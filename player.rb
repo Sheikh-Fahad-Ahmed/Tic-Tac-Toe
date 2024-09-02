@@ -1,4 +1,6 @@
 class Player
+  attr_reader :player1, :player2
+
   def initialize
     puts "\nPlayer 1 please choose your token ( X or O ):"
     @player1 = gets.chomp.upcase
@@ -8,10 +10,8 @@ class Player
                  'X'
                end
   end
-  
+
   def display_player_selection
     puts "\nPlayer 1 : #{@player1}\nPlayer 2 : #{@player2}"
   end
 end
-
-
