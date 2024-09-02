@@ -1,4 +1,4 @@
-require_relative 'game', 'board', 'player'
+
 
 class Main
   def initialize
