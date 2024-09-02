@@ -12,6 +12,3 @@ class Board
   end
 end
 
-board = Board.new
-
-board.show_board

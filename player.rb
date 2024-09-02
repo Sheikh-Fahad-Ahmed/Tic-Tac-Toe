@@ -1,6 +1,6 @@
 class Player
-  def initialize(player1, player2)
-    @player1 = player1
-    @player2 = player2
+  def initialize
+    puts "Player 1 Please select your token : X or O"
+    player1 = gets.chomp
   end
 end
