@@ -12,28 +12,6 @@ class Game
     @start_game = false
   end
 
-  def start_menu
-    puts "\n-----Menu-----"
-    puts '1. Show board'
-    puts '2. Start game'
-    puts '3. Exit'
-    puts '--------------'
-    puts "\nEnter your choice:"
-    choice = gets.chomp.to_i
-    start_menu_choice(choice)
-  end
-
-  def start_menu_choice(choice)
-    case choice
-    when 1
-      @board.show_board
-    when 2
-      @start_game = true
-    when 3
-      exit 0
-    end
-  end
-
   def game_menu(player_num)
     puts "\n-----Game Menu-----"
     puts '1. Play turn'
@@ -79,7 +57,9 @@ players = Player.new
 game1 = Game.new(players, board_instance)
 players.display_player_selection
 board_instance.show_board
-game1.start_menu until game1.start_game == true
+puts "\nDo you want to start the game (y or n):"
+answer = gets.chomp.downcase
+exit 0 if answer == 'n'
 player_num = 0
 loop do
   if board_instance.winning_condition(board_instance.board)
@@ -87,8 +67,7 @@ loop do
     puts "\nPlayer #{(player_num % 2) + 1} has won the game!"
     puts "Thank you for Playing!\n Good Bye.."
   else
-    puts "Player #{(player_num % 2) + 1}'s Turn"
+    puts "\nPlayer #{(player_num % 2) + 1}'s Turn"
     player_num = game1.game_menu(player_num)
-    puts player_num
   end
 end
