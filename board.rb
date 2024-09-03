@@ -1,6 +1,6 @@
 require_relative 'player'
 
-class Board 
+class Board
   attr_accessor :board
 
   def initialize
@@ -32,6 +32,8 @@ class Board
       true
     elsif [board[6], board[7], board[8]].uniq.size == 1
       true
+    elsif board.uniq.size == 2
+      'draw'
     end
   end
 end
