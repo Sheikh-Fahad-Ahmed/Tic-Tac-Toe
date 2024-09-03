@@ -27,7 +27,7 @@ class Game
     case choice
     when 1
       @board.show_board
-      postion = play_turn(player_num)
+      play_turn(player_num)
       player_num += 1
     when 2
       @board.show_board
@@ -65,8 +65,8 @@ loop do
   if board_instance.winning_condition(board_instance.board) == true
     puts "\n\n--------------------"
     puts 'Congradulations!!!'
-    puts "\nPlayer #{(player_num % 2) + 1} has won the game!"
-    puts "Thank you for Playing!\n Good Bye.."
+    puts "\nYou has won the game!"
+    puts 'Thank you for Playing!'
     puts '--------------------'
     exit 0
   elsif board_instance.winning_condition(board_instance.board) == 'draw'
