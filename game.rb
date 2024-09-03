@@ -4,8 +4,6 @@ require_relative 'board'
 require_relative 'player'
 
 class Game
-  attr_accessor :players, :board, :start_game
-
   def initialize(players, board_instance)
     @players = players
     @board = board_instance
@@ -23,6 +21,24 @@ class Game
     game_menu_choice(choice, player_num)
   end
 
+  private
+
+  attr_accessor :players, :board, :start_game
+
+  def update_board(postion, player_num)
+    @board.board[postion - 1] = if player_num.even?
+                                  @players.player1
+                                else
+                                  @players.player2
+                                end
+  end
+
+  def play_turn(player_num)
+    puts "\n Enter your postion:"
+    postion = gets.chomp.to_i
+    update_board(postion, player_num)
+  end
+
   def game_menu_choice(choice, player_num)
     case choice
     when 1
@@ -35,20 +51,6 @@ class Game
     when 3
       exit 0
     end
-  end
-
-  def play_turn(player_num)
-    puts "\n Enter your postion:"
-    postion = gets.chomp.to_i
-    update_board(postion, player_num)
-  end
-
-  def update_board(postion, player_num)
-    @board.board[postion - 1] = if player_num.even?
-                                  @players.player1
-                                else
-                                  @players.player2
-                                end
   end
 end
 
