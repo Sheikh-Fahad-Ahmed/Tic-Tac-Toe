@@ -26,11 +26,7 @@ class Game
   attr_accessor :players, :board, :start_game
 
   def update_board(postion, player_num)
-    @board.board[postion - 1] = if player_num.even?
-                                  @players.player1
-                                else
-                                  @players.player2
-                                end
+    @board.board[postion - 1] = player_num.even? ? @players.player1 : @players.player2
   end
 
   def play_turn(player_num)
