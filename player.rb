@@ -4,11 +4,7 @@ class Player
   def initialize
     puts "\nPlayer 1 please choose your token ( X or O ):"
     @player1 = gets.chomp.upcase
-    @player2 = if @player1 == 'X'
-                 'O'
-               else
-                 'X'
-               end
+    @player2 = @player1 == 'X' ? 'O' : 'X'
   end
 
   def display_player_selection
