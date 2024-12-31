@@ -15,7 +15,7 @@ class Board
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]}\n"
   end
 
-  def winning_condition(board)
+  def winning_condition
     if [board[0], board[3], board[6]].uniq.size == 1
       true
     elsif [board[0], board[4], board[8]].uniq.size == 1
@@ -35,5 +35,6 @@ class Board
     elsif board.uniq.size == 2
       'draw'
     end
+
   end
 end

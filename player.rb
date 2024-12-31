@@ -10,4 +10,9 @@ class Player
   def display_player_selection
     puts "\nPlayer 1 : #{@player1}\nPlayer 2 : #{@player2}"
   end
+
+  def currently_playing(current_player)
+    puts current_player == 'X' ? "\n Player 1" : "\n Player 2"
+    puts "\n --------------------"
+  end
 end

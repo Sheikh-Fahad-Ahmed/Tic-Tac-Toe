@@ -1,7 +1,6 @@
+require_relative 'game'
 
 
-class Main
-  def initialize
-    puts 'Welcome to Tic-Tac-Toe'
-  end
-end
+puts 'Welcome to Tic-Tac-Toe'
+game = Game.new
+game.start_game
