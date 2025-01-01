@@ -1,10 +1,11 @@
 class Player
   attr_accessor :player1, :player2
 
-  def initialize
+  def get_player_choice
     puts "\nPlayer 1 please choose your token ( X or O ):"
     @player1 = gets.chomp.upcase
     @player2 = @player1 == 'X' ? 'O' : 'X'
+    @player1
   end
 
   def display_player_selection
