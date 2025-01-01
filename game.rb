@@ -1,15 +1,16 @@
+# frozen_string_literal: true
 # class Game takes care of things like displaying menu, starting a game
 
 require_relative 'board'
 require_relative 'player'
 
 class Game
+  attr_accessor :current_player
 
- 
   def initialize
     @players = Player.new
     @board = Board.new
-    @current_player = @players.player1
+    @current_player = @players.get_player_choice
   end
 
   def start_game
