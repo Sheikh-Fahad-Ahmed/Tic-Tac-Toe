@@ -13,6 +13,13 @@ describe Board do
                                 'X', nil, nil]
         expect(board_instance.winning_condition).to eq(true)
       end
+
+      it 'returns true for horizontal win' do
+        board_instance.board = ['X', 'X', 'X',
+                                nil, nil, nil,
+                                nil, nil, nil]
+        expect(board_instance.winning_condition).to eq(true)
+      end
     end
   end
 end
