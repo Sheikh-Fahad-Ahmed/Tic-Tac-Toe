@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+require './board'
+
+describe Board do
+  subject(:board_instance) { described_class.new }
+
+  describe '#winning_condition' do
+    context 'when winning condition is called' do
+      it 'returns true for vertical win' do
+        board_instance.board = ['X', nil, nil,
+                                'X', nil, nil,
+                                'X', nil, nil]
+        expect(board_instance.winning_condition).to eq(true)
+      end
+    end
+  end
+end
