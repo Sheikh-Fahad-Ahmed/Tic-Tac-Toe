@@ -35,6 +35,5 @@ class Board
     elsif board.uniq.size == 2
       'draw'
     end
-
   end
 end

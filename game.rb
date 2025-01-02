@@ -77,19 +77,27 @@ class Game
   end
 
   def winner_message
-    puts "\n\n--------------------"
-    puts 'Congratulations!!!'
-    puts "\nYou has won the game!"
-    puts 'Thank you for Playing!'
-    puts '--------------------'
+    message = <<~MESSAGE
+      \n\n--------------------
+      Congratulations!!!
+      \nYou have won the game!
+      Thank you for Playing!
+      --------------------
+    MESSAGE
+    puts message
     exit 0
+    message
   end
 
   def draw_message
-    puts "\n\n--------------------"
-    puts "\nWell, It's a DRAW..."
-    puts 'Better luck next time!!'
-    puts '--------------------'
+    message = <<~MESSAGE
+      \n\n--------------------
+      \nWell, It's a DRAW...
+      Better luck next time!!
+      --------------------
+    MESSAGE
+    puts message
     exit 0
+    message
   end
 end
